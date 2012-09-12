@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+var path  = require( 'path' ),
+	n8iv  = require( 'n8iv' )( Object, Array, Boolean, Function, Number, String );
+
+require( '../' )( ( process.argv[2] && !process.argv[2].startsWith( '-' ) ? process.argv[2] : './' ) );

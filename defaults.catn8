@@ -1,0 +1,13 @@
+{
+	"encoding"       : "UTF-8",
+	"onfilenotfound" : "continue",
+	"source"         : {
+		"dir"        : "./"
+	},
+	"target"         : {
+		"dir"        : "{cwd}",
+		"min"        : true,
+		"name"       : "{dirname}"
+	},
+	"type"           : "text/plain"
+}
