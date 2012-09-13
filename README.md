@@ -1,6 +1,6 @@
 # warning
 
-This is a very early alpha release and as such I would not really recommend using catn8 until this message is not longer here.
+This is a very early alpha release and as such I would not really recommend using catn8 until this message is no longer here.
 
 Documentation and tests will also be available when a stable release is available.
 
