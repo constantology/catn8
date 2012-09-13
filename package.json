@@ -5,7 +5,7 @@
 		"url"         : "http://muigui.com"
 	},
 	"bin"             : {
-		"catn8"       : "./catn8"
+		"catn8"       : "./bin/catn8"
 	},
 	"description"     : "catn8 is a file concatenation tool than can also minify JavaScript using uglify-js and CSS using clean-css",
 	"dependencies"    : {
@@ -32,9 +32,6 @@
 	"repository"      : {
 		"type"        : "git",
 		"url"         : "git@github.com:constantology/catn8.git"
-	},
-	"scripts"         : {
-		"test"        : "mocha -c --ignore-leaks -R spec -u tdd ./test/*.test.js"
 	},
 	"version"         : "0.0.1"
 }

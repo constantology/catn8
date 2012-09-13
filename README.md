@@ -1,4 +1,15 @@
+# warning
+
+This is a very early alpha release and as such I would not really recommend using catn8 until this message is not longer here.
+
+Documentation and tests will also be available when a stable release is available.
+
 # catn8
+catn8 is a file concatenation and tool which currently also supports minification of JavaScript (using uglify-js) and CSS (using clean-css).
+
+point catn8 at your top level projects directory and let it automatically concatenate – and minify – your source files whenever a change is made.
+
+catn8 uses node's file watcher to listen to changes to any directory containing a `.catn8` json configuration file with instructions on how to concatenate files, where to created the concatenated file and whether or not to minify it.
 
 # LICENSE
 

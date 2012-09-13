@@ -5,9 +5,9 @@
 		"dir"        : "./"
 	},
 	"target"         : {
-		"dir"        : "{cwd}",
+		"dir"        : "{pwd}",
 		"min"        : true,
-		"name"       : "{dirname}"
+		"name"       : "{name}"
 	},
 	"type"           : "text/plain"
 }
