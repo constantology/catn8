@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 var pkg     = require( './lib/packages' ),
 	prop    = require( './lib/properties' ),
 
