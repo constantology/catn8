@@ -10,7 +10,6 @@ test/src
 
 runner.js
 
-*msie*
 *.bak*
 *.local*
 
