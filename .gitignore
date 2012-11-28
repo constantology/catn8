@@ -1,16 +1,10 @@
-
 .DS_Store
 .idea
 
 node_modules
 npm-debug.log
 
-_
-test/src
-
-runner.js
-
 *.bak*
 *.local*
 
-test
+__ignore__
