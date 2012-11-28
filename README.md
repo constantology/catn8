@@ -11,6 +11,14 @@ point catn8 at your top level projects directory and let it automatically concat
 
 catn8 uses node's file watcher to listen to changes to any directory containing a `.catn8` json configuration file with instructions on how to concatenate files, where to created the concatenated file and whether or not to minify it.
 
+# todo
+
+- finish tests
+- stability!
+- documentation
+- changes to .catn8 files don't trigger a build in the correct way
+- add ability to execute scripts before and after concatenation – e.g. run tests, deployment, whatever...
+
 # LICENSE
 
 (The MIT License)
