@@ -8,10 +8,12 @@ var pkg     = require( './lib/packages' ),
 
 	pwd,
 	watching_config = {},
-	watching_dir    = {};
+	watching_dir    = {},
+	nowatch         = false;
 
-function catn8( path ) {
-	pwd = pkg.path.resolve( process.cwd(), path );
+function catn8( path, nw ) {
+	pwd         = pkg.path.resolve( process.cwd(), path );
+	nowatch     = nw === '--nowatch';
 
 	var walkies = walker.start( pwd, onfindconfig );
 	walkies.on( 'directory', onfinddir );
@@ -35,7 +37,7 @@ function ondirchange( dir_path, event, file_name ) {
 		return;
 
 	console.log( 'dir change: ', arguments );
-	catn8( dir_path );
+	catn8( dir_path, nowatch );
 }
 
 function onfindconfig( config_path/*, stat*/ ) {
@@ -47,12 +49,14 @@ function onfindconfig( config_path/*, stat*/ ) {
 	if ( conf === null ) // in the event that a config was created but not yet ready, we don't want to conitnue just yet.
 		return;
 
-	console.log( 'found configuration and listening to: ', conf.__meta__.pwd );
+	if ( nowatch !== true ) {
+		console.log( 'found configuration and listening to: ', conf.__meta__.pwd );
 
-	conf.__meta__.watcher           =
-	watching_config[config_path]    =
-	watching_dir[conf.__meta__.pwd] =
-	watching_dir[conf.source.dir]   = watcher.start( conf.source.dir, onchange, conf );
+		conf.__meta__.watcher           =
+		watching_config[config_path]    =
+		watching_dir[conf.__meta__.pwd] =
+		watching_dir[conf.source.dir]   = watcher.start( conf.source.dir, onchange, conf );
+	}
 
 	file.create( conf );
 }
@@ -61,7 +65,8 @@ function onfinddir( dir_path, stat ) {
 	if ( watching_dir[dir_path] || !!~dir_path.indexOf( '/.' ) )
 		return;
 
-	watching_dir[dir_path] = watcher.start( dir_path, ondirchange, dir_path );
+	if ( nowatch !== true )
+		watching_dir[dir_path] = watcher.start( dir_path, ondirchange, dir_path );
 }
 
 function validate( conf ) {

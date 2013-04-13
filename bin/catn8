@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 
 var path  = require( 'path' ),
-	n8iv  = require( 'n8iv' )( Object, Array, Boolean, Function, Number, String );
+	n8iv  = require( 'n8iv' )( Object, Array, Boolean, Function, Number, String ),
+	args  = [],
+	argv  = process.argv;
 
-require( '../' )( ( process.argv[2] && !process.argv[2].startsWith( '-' ) ? process.argv[2] : './' ) );
+if ( argv[2] && argv[2].startsWith( '-' ) )
+	args.push( argv[1].endsWith( 'catn8' ) ? argv[3] || './' : './', argv[2] );
+else
+	args.push( './' );
+
+require( '../' ).apply( null, args );
